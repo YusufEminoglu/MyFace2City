@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Art-direction presets, colorways, and palette management for MyFace2City.
 """
@@ -34,7 +33,7 @@ class Palette:
         }
 
     @classmethod
-    def from_dict(cls, data: dict, name: str = "Custom") -> "Palette":
+    def from_dict(cls, data: dict, name: str = "Custom") -> Palette:
         colors = tuple(str(c) for c in data.get("colors", ["#000000"] * 5))
         widths = tuple(float(w) for w in data.get("widths", [1.0, 0.8, 0.6, 0.4, 0.2]))
         bg = str(data.get("background", "#ffffff"))

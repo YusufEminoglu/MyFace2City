@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 OpenStreetMap Data Acquisition Engine:
 Fetches road networks, building footprints, and water bodies from Overpass API into GeoJSON.

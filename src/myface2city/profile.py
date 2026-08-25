@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Dependency-free tone transforms, coordinate normalizers, and histogram statistics.
 """
@@ -84,15 +83,17 @@ def quantile_limits(histogram: list[int], clip_fraction: float = 0.01) -> tuple[
     target = total * min(0.25, max(0.0, clip_fraction))
     running = 0
     low = 0
-    for low, count in enumerate(histogram[:256]):
+    for idx, count in enumerate(histogram[:256]):
         running += max(0, int(count))
         if running >= target:
+            low = idx
             break
     running = 0
     high = 255
-    for high in range(min(255, len(histogram) - 1), -1, -1):
-        running += max(0, int(histogram[high]))
+    for idx in range(min(255, len(histogram) - 1), -1, -1):
+        running += max(0, int(histogram[idx]))
         if running >= target:
+            high = idx
             break
     return (low, high) if high > low else (0, 255)
 

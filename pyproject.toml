@@ -68,3 +68,13 @@ addopts = "--cov=myface2city --cov-report=term-missing --cov-fail-under=70"
 [tool.ruff]
 line-length = 120
 target-version = "py39"
+exclude = [
+    ".venv",
+    "build",
+    "dist",
+    "build_myface2city_docs.py",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "C4"]
+ignore = ["E501"]

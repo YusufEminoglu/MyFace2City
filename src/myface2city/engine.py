@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 UrbanPortrait Core Engine:
 Binds portrait imagery to geographic networks and styles vector features by luminance.

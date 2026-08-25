@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 MyFace2City — Turn urban street networks, building footprints, and vector maps into live optical portrait art.
 """

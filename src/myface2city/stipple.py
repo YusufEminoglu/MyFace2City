@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Algorithmic Halftone and Vector Stippling Engraving Generator for MyFace2City.
 """

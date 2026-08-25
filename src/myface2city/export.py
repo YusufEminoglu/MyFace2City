@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Artwork Exporter: Standalone Scalable Vector Graphics (SVG) Posters & QGIS QML Styles.
 """
