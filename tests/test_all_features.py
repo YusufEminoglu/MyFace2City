@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Comprehensive test suite for MyFace2City."""
 
 import os

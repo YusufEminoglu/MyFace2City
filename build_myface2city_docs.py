@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Generate high-end interactive manual and live generative art studio for MyFace2City."""
 
 from pathlib import Path

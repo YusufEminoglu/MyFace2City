@@ -14,6 +14,16 @@
 
 ---
 
+## 🌐 Live Interactive Studio & Documentation
+
+Explore the **in-browser Generative Cartography Studio** and comprehensive technical reference manual:
+
+👉 **[https://yusufeminoglu.github.io/MyFace2City/](https://yusufeminoglu.github.io/MyFace2City/)**
+
+Upload any portrait photo, choose from 10 curated artistic presets, and export scalable SVG posters directly in your browser.
+
+---
+
 ## 📖 Overview
 
 **`MyFace2City`** is a pure-Python generative cartography and optical portrait engine. It turns road networks, building footprints, land-use boundaries, and vector parcels into live optical portraits.
