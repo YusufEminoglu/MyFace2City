@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myface2city"
+version = "0.1.0"
+authors = [
+    { name = "Yusuf Eminoğlu", email = "yusufeminoglu@gmail.com" }
+]
+description = "Turn urban street networks, building footprints, and vector maps into live optical portrait art."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Multimedia :: Graphics",
+    "Typing :: Typed",
+]
+keywords = [
+    "gis", "cartography", "generative-art", "urban-portrait", "face2city",
+    "openstreetmap", "halftone", "stippling", "vector-art", "spatial-art"
+]
+dependencies = [
+    "pillow>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+    "build>=1.0.0",
+    "twine>=4.0.0",
+]
+
+[project.scripts]
+myface2city = "myface2city.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/YusufEminoglu/MyFace2City"
+Documentation = "https://yusufeminoglu.github.io/MyFace2City/"
+Repository = "https://github.com/YusufEminoglu/MyFace2City.git"
+Issues = "https://github.com/YusufEminoglu/MyFace2City/issues"
+Changelog = "https://github.com/YusufEminoglu/MyFace2City/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+myface2city = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--cov=myface2city --cov-report=term-missing --cov-fail-under=70"
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"

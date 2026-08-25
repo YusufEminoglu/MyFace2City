@@ -1,0 +1,2 @@
+[console_scripts]
+myface2city = myface2city.cli:main

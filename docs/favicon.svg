@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favMfcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF0055" />
+      <stop offset="50%" stop-color="#7000FF" />
+      <stop offset="100%" stop-color="#00F0FF" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#090D1A" stroke="url(#favMfcGrad)" stroke-width="2.5" />
+  <!-- Eyes -->
+  <circle cx="22" cy="24" r="5" fill="none" stroke="#00F0FF" stroke-width="2" />
+  <circle cx="22" cy="24" r="2" fill="#00F0FF" />
+  <circle cx="42" cy="24" r="5" fill="none" stroke="#00F0FF" stroke-width="2" />
+  <circle cx="42" cy="24" r="2" fill="#00F0FF" />
+  <!-- Nose -->
+  <path d="M 32 20 L 32 36 L 27 40 L 37 40" fill="none" stroke="#FF0055" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Mouth -->
+  <path d="M 20 48 Q 32 56 44 48" fill="none" stroke="#7000FF" stroke-width="2.5" stroke-linecap="round" />
+</svg>
