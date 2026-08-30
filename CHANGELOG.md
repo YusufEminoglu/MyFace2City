@@ -5,6 +5,12 @@ All notable changes to **`myface2city`** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.0] - 2026-08-30
+
+### Added
+- **Faceted Origami Papercraft & Low-Poly Tessellation (`origami_lowpoly_papercraft_art.py`)**: Added `generate_origami_papercraft_portrait` creating geometric triangular paper facets with crease shadows.
+- **Vintage Dual-Color Risograph Print & Grain Screen (`risograph_two_tone_print_art.py`)**: Added `generate_risograph_print_portrait` simulating stencil halftone dot drums and misregistration offsets.
+
 ## [0.10.0] - 2026-08-30
 
 ### Added

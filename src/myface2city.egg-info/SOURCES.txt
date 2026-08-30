@@ -14,12 +14,14 @@ src/myface2city/isometric_block_art.py
 src/myface2city/line_hatching.py
 src/myface2city/marquetry_wood_inlay_art.py
 src/myface2city/neon_cyberpunk_vector.py
+src/myface2city/origami_lowpoly_papercraft_art.py
 src/myface2city/osm.py
 src/myface2city/presets.py
 src/myface2city/profile.py
 src/myface2city/py.typed
 src/myface2city/reaction_diffusion.py
 src/myface2city/relief.py
+src/myface2city/risograph_two_tone_print_art.py
 src/myface2city/stained_glass_cathedral.py
 src/myface2city/stipple.py
 src/myface2city/thermal_infrared_palette_art.py
@@ -35,6 +37,7 @@ src/myface2city.egg-info/entry_points.txt
 src/myface2city.egg-info/requires.txt
 src/myface2city.egg-info/top_level.txt
 tests/test_all_features.py
+tests/test_round10.py
 tests/test_round4.py
 tests/test_round5.py
 tests/test_round6.py

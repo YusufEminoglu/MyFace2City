@@ -4,7 +4,7 @@ MyFace2City — Turn urban street networks, building footprints, and vector maps
 
 from __future__ import annotations
 
-__version__ = "0.10.0"
+__version__ = "0.11.0"
 __author__ = "Yusuf Eminoğlu"
 
 from . import cli
@@ -21,6 +21,16 @@ from .marquetry_wood_inlay_art import (
     MarquetryArtwork,
     WoodSpeciesPalette,
     generate_marquetry_portrait,
+)
+from .origami_lowpoly_papercraft_art import (
+    OrigamiArtwork,
+    PaperFacetMesh,
+    generate_origami_papercraft_portrait,
+)
+from .risograph_two_tone_print_art import (
+    RisoColorDrum,
+    RisographArtwork,
+    generate_risograph_print_portrait,
 )
 from .thermal_infrared_palette_art import (
     FLIRPalette,
@@ -209,4 +219,12 @@ __all__ = [
     "generate_thermal_infrared_portrait",
     "ThermalInfraredArtwork",
     "FLIRPalette",
+    # Faceted Origami Low-Poly Papercraft
+    "generate_origami_papercraft_portrait",
+    "OrigamiArtwork",
+    "PaperFacetMesh",
+    # Vintage Dual-Color Risograph Print
+    "generate_risograph_print_portrait",
+    "RisographArtwork",
+    "RisoColorDrum",
 ]
