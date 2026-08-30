@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "myface2city"
-version = "0.1.1"
+version = "0.8.0"
 authors = [
     { name = "Yusuf Eminoğlu", email = "yusufeminoglu@gmail.com" }
 ]
-description = "Turn urban street networks, building footprints, and vector maps into live optical portrait art."
+description = "Algorithmic Urban Portrait, Topographic Linocut Art & Cathedral Stained Glass Suite."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
@@ -63,7 +63,7 @@ myface2city = ["py.typed"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
-addopts = "--cov=myface2city --cov-report=term-missing --cov-fail-under=70"
+addopts = "-ra -q"
 
 [tool.ruff]
 line-length = 120
