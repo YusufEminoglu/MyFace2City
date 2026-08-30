@@ -10,6 +10,7 @@ src/myface2city/dithering_matrix.py
 src/myface2city/engine.py
 src/myface2city/export.py
 src/myface2city/flow_field.py
+src/myface2city/halftone_cmyk_rosette_print_art.py
 src/myface2city/isometric_block_art.py
 src/myface2city/line_hatching.py
 src/myface2city/marquetry_wood_inlay_art.py
@@ -23,6 +24,7 @@ src/myface2city/reaction_diffusion.py
 src/myface2city/relief.py
 src/myface2city/risograph_two_tone_print_art.py
 src/myface2city/stained_glass_cathedral.py
+src/myface2city/stained_marble_suminagashi_art.py
 src/myface2city/stipple.py
 src/myface2city/thermal_infrared_palette_art.py
 src/myface2city/tone_filter.py
@@ -38,6 +40,7 @@ src/myface2city.egg-info/requires.txt
 src/myface2city.egg-info/top_level.txt
 tests/test_all_features.py
 tests/test_round10.py
+tests/test_round11.py
 tests/test_round4.py
 tests/test_round5.py
 tests/test_round6.py

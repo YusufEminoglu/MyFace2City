@@ -4,7 +4,7 @@ MyFace2City — Turn urban street networks, building footprints, and vector maps
 
 from __future__ import annotations
 
-__version__ = "0.11.0"
+__version__ = "0.12.0"
 __author__ = "Yusuf Eminoğlu"
 
 from . import cli
@@ -16,6 +16,11 @@ from .blueprint_cyanotype_art import (
     BlueprintGridParams,
     CyanotypeArtwork,
     generate_blueprint_portrait,
+)
+from .halftone_cmyk_rosette_print_art import (
+    HalftoneRosetteArtwork,
+    RosetteScreenAngles,
+    generate_cmyk_rosette_portrait,
 )
 from .marquetry_wood_inlay_art import (
     MarquetryArtwork,
@@ -31,6 +36,11 @@ from .risograph_two_tone_print_art import (
     RisoColorDrum,
     RisographArtwork,
     generate_risograph_print_portrait,
+)
+from .stained_marble_suminagashi_art import (
+    MarblingVortexParams,
+    SuminagashiArtwork,
+    generate_suminagashi_marbling_portrait,
 )
 from .thermal_infrared_palette_art import (
     FLIRPalette,
@@ -227,4 +237,12 @@ __all__ = [
     "generate_risograph_print_portrait",
     "RisographArtwork",
     "RisoColorDrum",
+    # CMYK Halftone Rosette Pattern Print Art
+    "generate_cmyk_rosette_portrait",
+    "HalftoneRosetteArtwork",
+    "RosetteScreenAngles",
+    # Japanese Suminagashi Water Marbling Art
+    "generate_suminagashi_marbling_portrait",
+    "SuminagashiArtwork",
+    "MarblingVortexParams",
 ]

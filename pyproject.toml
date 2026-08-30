@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "myface2city"
-version = "0.11.0"
+version = "0.12.0"
 authors = [
     { name = "Yusuf Eminoğlu", email = "yusufeminoglu@gmail.com" }
 ]
-description = "Algorithmic Urban Portrait, Origami Papercraft & Risograph Screen Print Suite."
+description = "Algorithmic Urban Portrait, CMYK Halftone Rosettes & Suminagashi Water Marbling Suite."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"

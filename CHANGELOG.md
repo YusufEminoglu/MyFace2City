@@ -5,6 +5,12 @@ All notable changes to **`myface2city`** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0] - 2026-08-30
+
+### Added
+- **CMYK Halftone Rosette Pattern Print Art (`halftone_cmyk_rosette_print_art.py`)**: Added `generate_cmyk_rosette_portrait` generating 4-color offset lithography angled halftone screens.
+- **Japanese Suminagashi Water Marbling Art (`stained_marble_suminagashi_art.py`)**: Added `generate_suminagashi_marbling_portrait` simulating floating ink vortices and hydrodynamic streamlines.
+
 ## [0.11.0] - 2026-08-30
 
 ### Added
