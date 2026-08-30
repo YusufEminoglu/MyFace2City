@@ -3,6 +3,7 @@ README.md
 pyproject.toml
 src/myface2city/__init__.py
 src/myface2city/ascii_art.py
+src/myface2city/blueprint_cyanotype_art.py
 src/myface2city/cli.py
 src/myface2city/color_separation.py
 src/myface2city/dithering_matrix.py
@@ -11,6 +12,7 @@ src/myface2city/export.py
 src/myface2city/flow_field.py
 src/myface2city/isometric_block_art.py
 src/myface2city/line_hatching.py
+src/myface2city/neon_cyberpunk_vector.py
 src/myface2city/osm.py
 src/myface2city/presets.py
 src/myface2city/profile.py
@@ -35,5 +37,6 @@ tests/test_round4.py
 tests/test_round5.py
 tests/test_round6.py
 tests/test_round7.py
+tests/test_round8.py
 tests/test_rounds2_and_3.py
 tests/test_voronoi_and_relief.py

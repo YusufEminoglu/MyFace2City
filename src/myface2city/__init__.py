@@ -4,13 +4,18 @@ MyFace2City — Turn urban street networks, building footprints, and vector maps
 
 from __future__ import annotations
 
-__version__ = "0.7.0"
+__version__ = "0.9.0"
 __author__ = "Yusuf Eminoğlu"
 
 from . import cli
 from .ascii_art import (
     ASCIIArtwork,
     generate_ascii_map_art,
+)
+from .blueprint_cyanotype_art import (
+    BlueprintGridParams,
+    CyanotypeArtwork,
+    generate_blueprint_portrait,
 )
 from .color_separation import (
     ColorSeparationArtwork,
@@ -38,6 +43,11 @@ from .line_hatching import (
     HatchingArtwork,
     HatchingStroke,
     generate_engraved_hatching_art,
+)
+from .neon_cyberpunk_vector import (
+    CyberpunkArtwork,
+    NeonPalette,
+    generate_cyberpunk_neon_portrait,
 )
 from .osm import fetch_osm_network, generate_synthetic_urban_grid
 from .presets import (
@@ -173,4 +183,12 @@ __all__ = [
     "generate_stained_glass_portrait",
     "StainedGlassArtwork",
     "GlassFacet",
+    # Architectural Cyanotype Blueprint
+    "generate_blueprint_portrait",
+    "CyanotypeArtwork",
+    "BlueprintGridParams",
+    # Synthwave & Cyberpunk Neon Vectors
+    "generate_cyberpunk_neon_portrait",
+    "CyberpunkArtwork",
+    "NeonPalette",
 ]
