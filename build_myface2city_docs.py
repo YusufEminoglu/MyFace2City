@@ -598,7 +598,7 @@ mfc.export_svg(stipple_geojson, "stipple.svg", preset="Ink Portrait")</code></pr
 
 
 def main() -> None:
-    docs_dir = Path("docs")
+    docs_dir = Path(__file__).resolve().parent / "docs"
     docs_dir.mkdir(parents=True, exist_ok=True)
     index_file = docs_dir / "index.html"
     index_file.write_text(HTML_CONTENT, encoding="utf-8")
