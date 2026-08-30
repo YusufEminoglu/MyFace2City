@@ -12,6 +12,7 @@ src/myface2city/export.py
 src/myface2city/flow_field.py
 src/myface2city/isometric_block_art.py
 src/myface2city/line_hatching.py
+src/myface2city/marquetry_wood_inlay_art.py
 src/myface2city/neon_cyberpunk_vector.py
 src/myface2city/osm.py
 src/myface2city/presets.py
@@ -21,6 +22,7 @@ src/myface2city/reaction_diffusion.py
 src/myface2city/relief.py
 src/myface2city/stained_glass_cathedral.py
 src/myface2city/stipple.py
+src/myface2city/thermal_infrared_palette_art.py
 src/myface2city/tone_filter.py
 src/myface2city/topographic_linocut_art.py
 src/myface2city/voronoi_art.py
@@ -38,5 +40,6 @@ tests/test_round5.py
 tests/test_round6.py
 tests/test_round7.py
 tests/test_round8.py
+tests/test_round9.py
 tests/test_rounds2_and_3.py
 tests/test_voronoi_and_relief.py

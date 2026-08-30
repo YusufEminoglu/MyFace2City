@@ -4,7 +4,7 @@ MyFace2City — Turn urban street networks, building footprints, and vector maps
 
 from __future__ import annotations
 
-__version__ = "0.9.0"
+__version__ = "0.10.0"
 __author__ = "Yusuf Eminoğlu"
 
 from . import cli
@@ -16,6 +16,16 @@ from .blueprint_cyanotype_art import (
     BlueprintGridParams,
     CyanotypeArtwork,
     generate_blueprint_portrait,
+)
+from .marquetry_wood_inlay_art import (
+    MarquetryArtwork,
+    WoodSpeciesPalette,
+    generate_marquetry_portrait,
+)
+from .thermal_infrared_palette_art import (
+    FLIRPalette,
+    ThermalInfraredArtwork,
+    generate_thermal_infrared_portrait,
 )
 from .color_separation import (
     ColorSeparationArtwork,
@@ -191,4 +201,12 @@ __all__ = [
     "generate_cyberpunk_neon_portrait",
     "CyberpunkArtwork",
     "NeonPalette",
+    # Artisan Marquetry Wood Inlay
+    "generate_marquetry_portrait",
+    "MarquetryArtwork",
+    "WoodSpeciesPalette",
+    # FLIR Thermal Infrared Heatmap
+    "generate_thermal_infrared_portrait",
+    "ThermalInfraredArtwork",
+    "FLIRPalette",
 ]

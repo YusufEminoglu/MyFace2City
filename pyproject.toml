@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "myface2city"
-version = "0.9.0"
+version = "0.10.0"
 authors = [
     { name = "Yusuf Eminoğlu", email = "yusufeminoglu@gmail.com" }
 ]
-description = "Algorithmic Urban Portrait, Cyanotype Blueprint Art & Synthwave Cyberpunk Neon Suite."
+description = "Algorithmic Urban Portrait, Marquetry Wood Inlay & FLIR Thermal Infrared Heatmap Suite."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"

@@ -5,6 +5,12 @@ All notable changes to **`myface2city`** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0] - 2026-08-30
+
+### Added
+- **Artisan Marquetry Wood Inlay & Parquet Mosaic (`marquetry_wood_inlay_art.py`)**: Added `generate_marquetry_portrait` converting photos to fine exotic wood veneer parquet tessellations.
+- **FLIR Thermal Infrared Heatmap Art (`thermal_infrared_palette_art.py`)**: Added `generate_thermal_infrared_portrait` mapping facial luminescence to false-color Ironbow spectral isotherms.
+
 ## [0.9.0] - 2026-08-30
 
 ### Added
