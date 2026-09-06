@@ -48,11 +48,11 @@ dev = [
 myface2city = "myface2city.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/YusufEminoglu/MyFace2City"
-Documentation = "https://yusufeminoglu.github.io/MyFace2City/"
-Repository = "https://github.com/YusufEminoglu/MyFace2City.git"
-Issues = "https://github.com/YusufEminoglu/MyFace2City/issues"
-Changelog = "https://github.com/YusufEminoglu/MyFace2City/blob/main/CHANGELOG.md"
+Homepage = "https://geophilo.com/"
+Documentation = "https://geophilo.com/"
+Repository = "https://gitlab.com/geospacephilo/MyFace2City"
+Issues = "https://gitlab.com/geospacephilo/MyFace2City/-/issues"
+Changelog = "https://gitlab.com/geospacephilo/MyFace2City/-/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]

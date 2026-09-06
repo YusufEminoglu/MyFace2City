@@ -8,8 +8,8 @@
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/v/myface2city?color=FF0055&label=PyPI%20Version" alt="PyPI"></a>
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
   <a href="https://yusufeminoglu.github.io/MyFace2City/"><img src="https://img.shields.io/badge/%F0%9F%93%96_Documentation-Interactive_Site-00F0FF" alt="Documentation"></a>
-  <a href="https://github.com/YusufEminoglu/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
-  <a href="https://github.com/YusufEminoglu/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
+  <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
+  <a href="https://gitlab.com/geospacephilo/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
 </p>
 
 ---
