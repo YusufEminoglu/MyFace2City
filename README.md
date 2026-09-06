@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/v/myface2city?color=FF0055&label=PyPI%20Version" alt="PyPI"></a>
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
-  <a href="https://geophilo.com/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
+  <a href="https://geophilo.com/myface2city/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
 </p>
@@ -18,7 +18,7 @@
 
 Explore the **in-browser Generative Cartography Studio** and comprehensive technical reference manual:
 
-👉 **[https://geophilo.com/](https://geophilo.com/)**
+👉 **[https://geophilo.com/myface2city/](https://geophilo.com/myface2city/)**
 
 Upload any portrait photo, choose from 10 curated artistic presets, and export scalable SVG posters directly in your browser.
 

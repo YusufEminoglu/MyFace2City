@@ -49,7 +49,7 @@ myface2city = "myface2city.cli:main"
 
 [project.urls]
 Homepage = "https://geophilo.com/"
-Documentation = "https://geophilo.com/"
+Documentation = "https://geophilo.com/myface2city/"
 Repository = "https://gitlab.com/geospacephilo/MyFace2City"
 Issues = "https://gitlab.com/geospacephilo/MyFace2City/-/issues"
 Changelog = "https://gitlab.com/geospacephilo/MyFace2City/-/blob/main/CHANGELOG.md"
