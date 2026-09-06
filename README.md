@@ -1,13 +1,13 @@
 # MyFace2City — Optical Urban Portrait & Generative Cartography Engine
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YusufEminoglu/MyFace2City/main/assets/logo.svg" alt="MyFace2City Logo" width="680">
+  <img src="https://geophilo.com/assets/sdk_icons/myface2city.svg" alt="MyFace2City Logo" width="680">
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/v/myface2city?color=FF0055&label=PyPI%20Version" alt="PyPI"></a>
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
-  <a href="https://yusufeminoglu.github.io/MyFace2City/"><img src="https://img.shields.io/badge/%F0%9F%93%96_Documentation-Interactive_Site-00F0FF" alt="Documentation"></a>
+  <a href="https://geophilo.com/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
 </p>
@@ -18,7 +18,7 @@
 
 Explore the **in-browser Generative Cartography Studio** and comprehensive technical reference manual:
 
-👉 **[https://yusufeminoglu.github.io/MyFace2City/](https://yusufeminoglu.github.io/MyFace2City/)**
+👉 **[https://geophilo.com/](https://geophilo.com/)**
 
 Upload any portrait photo, choose from 10 curated artistic presets, and export scalable SVG posters directly in your browser.
 
