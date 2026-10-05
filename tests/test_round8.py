@@ -6,13 +6,13 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+
 from PIL import Image
 
 from myface2city import (
     BlueprintGridParams,
     CyanotypeArtwork,
     CyberpunkArtwork,
-    NeonPalette,
     generate_blueprint_portrait,
     generate_cyberpunk_neon_portrait,
 )

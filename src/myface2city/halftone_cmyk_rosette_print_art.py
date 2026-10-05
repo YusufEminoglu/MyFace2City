@@ -3,10 +3,9 @@
 
 from __future__ import annotations
 
-import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Sequence
+
 from PIL import Image
 
 
@@ -44,7 +43,6 @@ def generate_cmyk_rosette_portrait(
     paper_tone_hex: str = "#ffffff",
 ) -> HalftoneRosetteArtwork:
     """Generate 4-color offset lithography CMYK angled halftone screens producing classic optical rosette moire patterns."""
-    ang = angles or RosetteScreenAngles()
     img_rgb = image.convert("RGB")
     w, h = img_rgb.size
 

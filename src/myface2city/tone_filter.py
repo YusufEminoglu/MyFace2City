@@ -5,8 +5,8 @@ from __future__ import annotations
 
 import math
 from pathlib import Path
-from typing import Any
-from PIL import Image, ImageFilter, ImageOps
+
+from PIL import Image, ImageOps
 
 
 def bilateral_texture_filter(

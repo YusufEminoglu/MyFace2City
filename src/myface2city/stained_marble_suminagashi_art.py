@@ -4,9 +4,9 @@
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Sequence
+
 from PIL import Image
 
 
@@ -71,8 +71,6 @@ def generate_suminagashi_marbling_portrait(
             swirl = angle + (dist / 30.0) * p.vortex_intensity * ((255 - lum) / 255.0)
             sx = cx + dist * math.cos(swirl)
             sy = cy + dist * math.sin(swirl)
-
-            stroke_w = max(0.4, min(2.5, ((255 - lum) / 255.0) * 2.2))
 
             if len(path_pts) == 0:
                 path_pts.append(f"M {sx:.1f} {sy:.1f}")

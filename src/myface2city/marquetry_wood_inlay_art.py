@@ -3,10 +3,9 @@
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Sequence
+
 from PIL import Image
 
 
@@ -55,7 +54,7 @@ def generate_marquetry_portrait(
     num_bins = len(pal.palette_hex)
     bin_size = 256.0 / float(num_bins)
 
-    distrib: dict[str, int] = {c: 0 for c in pal.palette_hex}
+    distrib: dict[str, int] = dict.fromkeys(pal.palette_hex, 0)
     svg_elements: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">',
         f'  <rect width="{w}" height="{h}" fill="{pal.palette_hex[0]}" />',
@@ -86,8 +85,6 @@ def generate_marquetry_portrait(
             tw = min(tile_size_px, w - x)
             th = min(tile_size_px, h - y)
 
-            # Subtle wood grain angle rotation pattern
-            grain_rot = ((x // tile_size_px + y // tile_size_px) % 2) * 90
             svg_elements.append(
                 f'    <rect x="{x}" y="{y}" width="{tw}" height="{th}" fill="{wood_color}" stroke="#221105" stroke-width="0.3" opacity="0.95" />'
             )

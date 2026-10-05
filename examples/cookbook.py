@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """myface2city Cookbook — Flow Fields, CMYK Plates & ASCII Typographic Art."""
 
-import myface2city
 from PIL import Image
+
+import myface2city
 
 test_img = Image.new("RGB", (64, 64), color="lightblue")
 

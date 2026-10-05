@@ -6,10 +6,10 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+
 from PIL import Image
 
 from myface2city import (
-    GlassFacet,
     LinocutArtwork,
     LinocutCarveParams,
     StainedGlassArtwork,

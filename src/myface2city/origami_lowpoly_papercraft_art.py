@@ -3,10 +3,9 @@
 
 from __future__ import annotations
 
-import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Sequence
+
 from PIL import Image
 
 
@@ -44,7 +43,6 @@ def generate_origami_papercraft_portrait(
     img = image.convert("L")
     w, h = img.size
 
-    facets: list[PaperFacetMesh] = []
     svg_elements: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">',
         f'  <rect width="{w}" height="{h}" fill="{paper_base_color_hex}" />',

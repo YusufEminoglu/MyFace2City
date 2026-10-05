@@ -6,13 +6,12 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+
 from PIL import Image
 
 from myface2city import (
-    FLIRPalette,
     MarquetryArtwork,
     ThermalInfraredArtwork,
-    WoodSpeciesPalette,
     generate_marquetry_portrait,
     generate_thermal_infrared_portrait,
 )
