@@ -38,9 +38,11 @@ class ThermalInfraredArtwork:
     svg_data: str
 
     def to_svg(self) -> str:
+        """Return the thermal infrared artwork as an SVG string."""
         return self.svg_data
 
     def save_svg(self, path: str | Path) -> None:
+        """Write the SVG artwork to ``path``."""
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(self.svg_data, encoding="utf-8")
@@ -78,9 +80,7 @@ def generate_thermal_infrared_portrait(
             bw = min(pixel_bin_size_px, w - x)
             bh = min(pixel_bin_size_px, h - y)
 
-            svg_elements.append(
-                f'    <rect x="{x}" y="{y}" width="{bw}" height="{bh}" fill="{color}" />'
-            )
+            svg_elements.append(f'    <rect x="{x}" y="{y}" width="{bw}" height="{bh}" fill="{color}" />')
 
     svg_elements.append("  </g>")
     svg_elements.append("</svg>")

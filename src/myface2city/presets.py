@@ -8,6 +8,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 _COLOR_PATTERN = re.compile(r"^#[0-9a-fA-F]{6}(?:[0-9a-fA-F]{2})?$")
 TONE_BREAKS = (0, 52, 104, 156, 208, 256)
@@ -23,7 +24,8 @@ class Palette:
     widths: tuple[float, float, float, float, float]
     hide_highlights: bool = False
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
+        """Return the palette as a JSON-serializable dictionary."""
         return {
             "name": self.name,
             "colors": list(self.colors),
@@ -33,7 +35,8 @@ class Palette:
         }
 
     @classmethod
-    def from_dict(cls, data: dict, name: str = "Custom") -> Palette:
+    def from_dict(cls, data: dict[str, Any], name: str = "Custom") -> Palette:
+        """Build a palette from a dictionary, falling back to defaults for missing keys."""
         colors = tuple(str(c) for c in data.get("colors", ["#000000"] * 5))
         widths = tuple(float(w) for w in data.get("widths", [1.0, 0.8, 0.6, 0.4, 0.2]))
         bg = str(data.get("background", "#ffffff"))

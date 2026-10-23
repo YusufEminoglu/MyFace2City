@@ -26,9 +26,11 @@ class OrigamiArtwork:
     svg_data: str
 
     def to_svg(self) -> str:
+        """Return the origami artwork as an SVG string."""
         return self.svg_data
 
     def save_svg(self, path: str | Path) -> None:
+        """Write the SVG artwork to ``path``."""
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(self.svg_data, encoding="utf-8")
@@ -60,18 +62,14 @@ def generate_origami_papercraft_portrait(
             # Triangle 1: (x,y), (x+step, y), (x, y+step)
             t1_lum = lum_tl
             t1_hex = f"#{int(t1_lum):02x}{int(t1_lum * 0.95):02x}{int(t1_lum * 0.90):02x}"
-            pts1 = f"{x},{y} {x+grid_subdivision_px},{y} {x},{y+grid_subdivision_px}"
-            svg_elements.append(
-                f'    <polygon points="{pts1}" fill="{t1_hex}" stroke="#b0a89a" stroke-width="0.3" />'
-            )
+            pts1 = f"{x},{y} {x + grid_subdivision_px},{y} {x},{y + grid_subdivision_px}"
+            svg_elements.append(f'    <polygon points="{pts1}" fill="{t1_hex}" stroke="#b0a89a" stroke-width="0.3" />')
 
             # Triangle 2: (x+step, y), (x+step, y+step), (x, y+step)
             t2_lum = lum_br
             t2_hex = f"#{int(t2_lum):02x}{int(t2_lum * 0.95):02x}{int(t2_lum * 0.90):02x}"
-            pts2 = f"{x+grid_subdivision_px},{y} {x+grid_subdivision_px},{y+grid_subdivision_px} {x},{y+grid_subdivision_px}"
-            svg_elements.append(
-                f'    <polygon points="{pts2}" fill="{t2_hex}" stroke="#b0a89a" stroke-width="0.3" />'
-            )
+            pts2 = f"{x + grid_subdivision_px},{y} {x + grid_subdivision_px},{y + grid_subdivision_px} {x},{y + grid_subdivision_px}"
+            svg_elements.append(f'    <polygon points="{pts2}" fill="{t2_hex}" stroke="#b0a89a" stroke-width="0.3" />')
 
             facet_id += 2
 

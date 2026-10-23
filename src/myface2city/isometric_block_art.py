@@ -30,8 +30,9 @@ class IsometricCityArtwork:
     voxels: list[IsometricVoxel]
 
     def to_svg(self, background_color: str = "#0f172a") -> str:
+        """Render the isometric city voxels as a standalone SVG document."""
         # Sort voxels from back to front: (grid_r + grid_c)
-        sorted_vox = sorted(self.voxels, key=lambda v: (v.grid_r + v.grid_c))
+        sorted_vox = sorted(self.voxels, key=lambda v: v.grid_r + v.grid_c)
 
         cube_w = 16.0
         cube_h = 8.0  # standard 2:1 isometric ratio
@@ -71,6 +72,7 @@ class IsometricCityArtwork:
 </svg>"""
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")

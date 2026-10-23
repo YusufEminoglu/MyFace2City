@@ -26,6 +26,7 @@ class DitherArtwork:
     dither_matrix: list[list[int]]  # 0 or 255
 
     def to_image(self) -> Image.Image:
+        """Build a 1-bit PIL image from the dithered bitmap."""
         img = Image.new("1", (self.width, self.height))
         pixels = img.load()
         for r in range(self.height):

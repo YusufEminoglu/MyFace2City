@@ -27,9 +27,11 @@ class CyberpunkArtwork:
     svg_content: str
 
     def to_svg(self) -> str:
+        """Return the cyberpunk artwork as an SVG string."""
         return self.svg_content
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")
@@ -76,15 +78,11 @@ def generate_cyberpunk_neon_portrait(
             lum = 1.0 - (pixels[x, y] / 255.0)  # Dark features get bright neon emission
             if lum > 0.6:
                 # Electric Pink
-                neon_nodes.append(
-                    f'<circle cx="{x}" cy="{y}" r="2" fill="{pal.electric_pink}" filter="url(#glow)" />'
-                )
+                neon_nodes.append(f'<circle cx="{x}" cy="{y}" r="2" fill="{pal.electric_pink}" filter="url(#glow)" />')
                 vector_cnt += 1
             elif lum > 0.35:
                 # Laser Cyan
-                neon_nodes.append(
-                    f'<circle cx="{x}" cy="{y}" r="1.5" fill="{pal.laser_cyan}" filter="url(#glow)" />'
-                )
+                neon_nodes.append(f'<circle cx="{x}" cy="{y}" r="1.5" fill="{pal.laser_cyan}" filter="url(#glow)" />')
                 vector_cnt += 1
 
     joined_nodes = "\n    ".join(neon_nodes)

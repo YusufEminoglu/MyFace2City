@@ -26,9 +26,11 @@ class RisographArtwork:
     svg_data: str
 
     def to_svg(self) -> str:
+        """Return the Risograph artwork as an SVG string."""
         return self.svg_data
 
     def save_svg(self, path: str | Path) -> None:
+        """Write the SVG artwork to ``path``."""
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(self.svg_data, encoding="utf-8")
@@ -51,7 +53,7 @@ def generate_risograph_print_portrait(
     svg_elements: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">',
         f'  <rect width="{w}" height="{h}" fill="{paper_tone_hex}" />',
-        f'  <!-- Risograph Drum 1: {d1.name} -->',
+        f"  <!-- Risograph Drum 1: {d1.name} -->",
         f'  <g id="riso-drum-1" fill="{d1.hex_code}" opacity="0.82" style="mix-blend-mode: multiply;">',
     ]
 
@@ -70,7 +72,7 @@ def generate_risograph_print_portrait(
                 dots1 += 1
 
     svg_elements.append("  </g>")
-    svg_elements.append(f'  <!-- Risograph Drum 2: {d2.name} -->')
+    svg_elements.append(f"  <!-- Risograph Drum 2: {d2.name} -->")
     svg_elements.append(f'  <g id="riso-drum-2" fill="{d2.hex_code}" opacity="0.82" style="mix-blend-mode: multiply;">')
 
     # Drum 2 pass (Shadows / Deep tones)

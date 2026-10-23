@@ -19,6 +19,7 @@ from .stipple import calculate_stipple_points, stipple_to_geojson
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run the MyFace2City command-line interface and return an exit status code."""
     parser = argparse.ArgumentParser(
         prog="myface2city",
         description="Turn urban street networks, building footprints, and vector maps into live optical portrait art.",
@@ -118,6 +119,7 @@ def main(argv: list[str] | None = None) -> int:
         pixels = img.load()
 
         def sample_fn(u: float, v: float) -> float:
+            """Sample normalized image luminance at the (u, v) coordinate."""
             px = int(max(0.0, min(1.0, u)) * (w - 1))
             py = int(max(0.0, min(1.0, v)) * (h - 1))
             return float(pixels[px, py])

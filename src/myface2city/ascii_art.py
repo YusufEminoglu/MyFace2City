@@ -19,9 +19,11 @@ class ASCIIArtwork:
     char_palette: str
 
     def to_plain_text(self) -> str:
+        """Return the portrait as newline-joined plain text."""
         return "\n".join(self.text_lines)
 
     def to_html(self, background: str = "#0f172a", text_color: str = "#38bdf8", font_size_px: int = 10) -> str:
+        """Render the portrait as a standalone HTML snippet with configurable colors and font size."""
         escaped_lines = [
             line.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace(" ", "&nbsp;")
             for line in self.text_lines
@@ -43,6 +45,7 @@ class ASCIIArtwork:
 </html>"""
 
     def save_html(self, output_path: str | Path) -> Path:
+        """Write the HTML portrait to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_html(), encoding="utf-8")

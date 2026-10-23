@@ -27,9 +27,11 @@ class LinocutArtwork:
     svg_content: str
 
     def to_svg(self) -> str:
+        """Return the linocut artwork as an SVG string."""
         return self.svg_content
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")

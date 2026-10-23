@@ -39,6 +39,7 @@ src/myface2city.egg-info/entry_points.txt
 src/myface2city.egg-info/requires.txt
 src/myface2city.egg-info/top_level.txt
 tests/test_all_features.py
+tests/test_edge_cases.py
 tests/test_round10.py
 tests/test_round11.py
 tests/test_round4.py

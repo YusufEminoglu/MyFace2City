@@ -5,6 +5,16 @@ All notable changes to **`myface2city`** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.1] - 2026-10-23
+
+### Changed
+- Added concise, accurate docstrings to every public and private function/method in `src/` and completed generic annotations.
+- Reformatted the codebase and test suite with `ruff format`; `ruff check .` is clean.
+- Expanded `README.md` with detailed installation (including the `dev` extra), additional usage examples, a feature list, and a public API reference table verified against the real signatures.
+
+### Added
+- New `tests/test_edge_cases.py` covering validation errors, sampling modes, export fallbacks, CLI error paths, OSM download/fallback behaviour, and direct artwork dataclass rendering. Test coverage is now ~99%.
+
 ## [0.12.0] - 2026-08-30
 
 ### Added

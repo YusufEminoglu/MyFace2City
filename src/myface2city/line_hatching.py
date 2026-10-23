@@ -29,6 +29,7 @@ class HatchingArtwork:
     strokes: list[HatchingStroke]
 
     def to_svg(self, stroke_color: str = "#0f172a", background_color: str = "#f8fafc") -> str:
+        """Render the hatching strokes as a standalone SVG document."""
         lines = [
             f'<line x1="{s.x1:.2f}" y1="{s.y1:.2f}" x2="{s.x2:.2f}" y2="{s.y2:.2f}" stroke="{stroke_color}" stroke-width="{s.stroke_width:.2f}" stroke-linecap="round" />'
             for s in self.strokes
@@ -40,6 +41,7 @@ class HatchingArtwork:
 </svg>"""
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")
@@ -76,7 +78,7 @@ def generate_engraved_hatching_art(
             for p in range(passes):
                 ang = hatch_angles_deg[p % len(hatch_angles_deg)]
                 rad = math.radians(ang)
-                half_len = (grid_step_px * 0.7)
+                half_len = grid_step_px * 0.7
 
                 dx = half_len * math.cos(rad)
                 dy = half_len * math.sin(rad)

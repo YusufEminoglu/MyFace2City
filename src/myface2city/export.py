@@ -44,6 +44,7 @@ def render_svg_artwork(
     draw_h = svg_height - 2 * margin
 
     def world_to_screen(x: float, y: float) -> tuple[float, float]:
+        """Project a world coordinate into SVG screen space with a flipped vertical axis."""
         sx = margin + ((x - min_x) / geo_w) * draw_w
         sy = margin + ((max_y - y) / geo_h) * draw_h  # SVG Y down
         return round(sx, 2), round(sy, 2)
@@ -114,6 +115,7 @@ def export_svg(
 
 
 def _update_bbox(coords: Any, min_x: float, min_y: float, max_x: float, max_y: float) -> None:
+    """Recursively walk nested coordinate arrays, updating local bounding-box candidates."""
     if not coords:
         return
     if isinstance(coords[0], (int, float)):

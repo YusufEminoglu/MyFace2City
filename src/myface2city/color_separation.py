@@ -47,7 +47,9 @@ class ColorSeparationArtwork:
                         cx = c * cell_size + cell_size / 2.0
                         cy = r * cell_size + cell_size / 2.0
                         rad = val * max_r
-                        circles.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{rad:.2f}" fill="{plate.hex_ink_color}" />')
+                        circles.append(
+                            f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{rad:.2f}" fill="{plate.hex_ink_color}" />'
+                        )
 
             joined = "\n  ".join(circles)
             w_px = cols * cell_size

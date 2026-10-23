@@ -32,7 +32,7 @@ keywords = [
     "openstreetmap", "halftone", "stippling", "vector-art", "spatial-art"
 ]
 dependencies = [
-    "pillow>=9.0.0",
+    "pillow>=9.1.0",
 ]
 
 [project.optional-dependencies]

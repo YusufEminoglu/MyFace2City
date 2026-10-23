@@ -17,7 +17,12 @@ class TuringPatternArtwork:
     height: int
     chemical_b_matrix: list[list[float]]
 
-    def to_image(self, foreground_color: tuple[int, int, int] = (255, 255, 255), background_color: tuple[int, int, int] = (15, 23, 42)) -> Image.Image:
+    def to_image(
+        self,
+        foreground_color: tuple[int, int, int] = (255, 255, 255),
+        background_color: tuple[int, int, int] = (15, 23, 42),
+    ) -> Image.Image:
+        """Rasterize the chemical-B field into an RGB image blending foreground over background."""
         img = Image.new("RGB", (self.width, self.height), background_color)
         pixels = img.load()
         for r in range(self.height):

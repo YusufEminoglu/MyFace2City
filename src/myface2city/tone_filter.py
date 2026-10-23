@@ -26,8 +26,8 @@ def bilateral_texture_filter(
     out_pix = out_img.load()
 
     rad = int(spatial_sigma * 2)
-    spatial_coeff = -0.5 / (spatial_sigma ** 2)
-    range_coeff = -0.5 / (range_sigma ** 2)
+    spatial_coeff = -0.5 / (spatial_sigma**2)
+    range_coeff = -0.5 / (range_sigma**2)
 
     for y in range(h):
         for x in range(w):

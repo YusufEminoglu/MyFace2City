@@ -26,9 +26,11 @@ class CyanotypeArtwork:
     svg_content: str
 
     def to_svg(self) -> str:
+        """Return the cyanotype artwork as an SVG string."""
         return self.svg_content
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")
@@ -78,17 +80,17 @@ def generate_blueprint_portrait(
                 # Fine dimension cross-mark
                 cx, cy = x + step / 2.0, y + step / 2.0
                 elements.append(
-                    f'<line x1="{cx-1.5}" y1="{cy}" x2="{cx+1.5}" y2="{cy}" stroke="#60a5fa" stroke-width="0.8" />'
+                    f'<line x1="{cx - 1.5}" y1="{cy}" x2="{cx + 1.5}" y2="{cy}" stroke="#60a5fa" stroke-width="0.8" />'
                 )
                 elements.append(
-                    f'<line x1="{cx}" y1="{cy-1.5}" x2="{cx}" y2="{cy+1.5}" stroke="#60a5fa" stroke-width="0.8" />'
+                    f'<line x1="{cx}" y1="{cy - 1.5}" x2="{cx}" y2="{cy + 1.5}" stroke="#60a5fa" stroke-width="0.8" />'
                 )
                 elem_count += 1
 
     # 3. Outer border frame and technical title block
     bw = p.frame_border_width_px
     elements.append(
-        f'<rect x="{bw}" y="{bw}" width="{w - 2*bw}" height="{h - 2*bw}" fill="none" stroke="#60a5fa" stroke-width="2" />'
+        f'<rect x="{bw}" y="{bw}" width="{w - 2 * bw}" height="{h - 2 * bw}" fill="none" stroke="#60a5fa" stroke-width="2" />'
     )
     elements.append(
         f'<text x="{bw + 10}" y="{h - bw - 10}" fill="#93c5fd" font-family="monospace" font-size="10" font-weight="bold">{p.title_text}</text>'

@@ -29,6 +29,7 @@ class FlowFieldArtwork:
     streamlines: list[Streamline]
 
     def to_svg(self, stroke_color: str | None = None, background: str = "#0f172a") -> str:
+        """Render the streamlines as a standalone SVG document."""
         paths = []
         for line in self.streamlines:
             if len(line.points) < 2:
@@ -48,6 +49,7 @@ class FlowFieldArtwork:
 </svg>"""
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")
@@ -75,6 +77,7 @@ def generate_flow_field_art(
     blur_pix = img_blur.load()
 
     def get_angle(x: float, y: float) -> float:
+        """Return the flow-field direction angle at pixel (x, y)."""
         ix = max(1, min(w - 2, int(x)))
         iy = max(1, min(h - 2, int(y)))
         # Sobel/gradient

@@ -46,7 +46,7 @@ class VoxelScene:
         polygons: list[str] = []
 
         # Sort blocks back-to-front (painter's algorithm)
-        sorted_blocks = sorted(self.blocks, key=lambda b: (b.grid_x + b.grid_y))
+        sorted_blocks = sorted(self.blocks, key=lambda b: b.grid_x + b.grid_y)
 
         for b in sorted_blocks:
             # Isometric grid projection
@@ -57,17 +57,23 @@ class VoxelScene:
             top_y = iso_y - z_offset
 
             # Top Face (Diamond)
-            top_pts = f"{iso_x:.1f},{top_y:.1f} {iso_x + bw/2:.1f},{top_y + bh/2:.1f} {iso_x:.1f},{top_y + bh:.1f} {iso_x - bw/2:.1f},{top_y + bh/2:.1f}"
-            polygons.append(f'<polygon points="{top_pts}" fill="{b.top_color_hex}" stroke="#000000" stroke-width="0.3" />')
+            top_pts = f"{iso_x:.1f},{top_y:.1f} {iso_x + bw / 2:.1f},{top_y + bh / 2:.1f} {iso_x:.1f},{top_y + bh:.1f} {iso_x - bw / 2:.1f},{top_y + bh / 2:.1f}"
+            polygons.append(
+                f'<polygon points="{top_pts}" fill="{b.top_color_hex}" stroke="#000000" stroke-width="0.3" />'
+            )
 
             # Left Face
             if z_offset > 0:
-                left_pts = f"{iso_x - bw/2:.1f},{top_y + bh/2:.1f} {iso_x:.1f},{top_y + bh:.1f} {iso_x:.1f},{iso_y + bh:.1f} {iso_x - bw/2:.1f},{iso_y + bh/2:.1f}"
-                polygons.append(f'<polygon points="{left_pts}" fill="{b.left_color_hex}" stroke="#000000" stroke-width="0.3" />')
+                left_pts = f"{iso_x - bw / 2:.1f},{top_y + bh / 2:.1f} {iso_x:.1f},{top_y + bh:.1f} {iso_x:.1f},{iso_y + bh:.1f} {iso_x - bw / 2:.1f},{iso_y + bh / 2:.1f}"
+                polygons.append(
+                    f'<polygon points="{left_pts}" fill="{b.left_color_hex}" stroke="#000000" stroke-width="0.3" />'
+                )
 
                 # Right Face
-                right_pts = f"{iso_x:.1f},{top_y + bh:.1f} {iso_x + bw/2:.1f},{top_y + bh/2:.1f} {iso_x + bw/2:.1f},{iso_y + bh/2:.1f} {iso_x:.1f},{iso_y + bh:.1f}"
-                polygons.append(f'<polygon points="{right_pts}" fill="{b.right_color_hex}" stroke="#000000" stroke-width="0.3" />')
+                right_pts = f"{iso_x:.1f},{top_y + bh:.1f} {iso_x + bw / 2:.1f},{top_y + bh / 2:.1f} {iso_x + bw / 2:.1f},{iso_y + bh / 2:.1f} {iso_x:.1f},{iso_y + bh:.1f}"
+                polygons.append(
+                    f'<polygon points="{right_pts}" fill="{b.right_color_hex}" stroke="#000000" stroke-width="0.3" />'
+                )
 
         joined = "\n  ".join(polygons)
         return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" width="{svg_w}" height="{svg_h}">
@@ -76,6 +82,7 @@ class VoxelScene:
 </svg>"""
 
     def save_svg(self, output_path: str | Path) -> Path:
+        """Write the SVG artwork to ``output_path`` and return the written path."""
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.to_svg(), encoding="utf-8")

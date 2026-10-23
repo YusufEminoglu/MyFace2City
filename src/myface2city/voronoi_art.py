@@ -103,6 +103,7 @@ def generate_voronoi_stipple(
 
     # Step 1: Initialize random or density-weighted points
     import random
+
     rng = random.Random(42)
 
     # Sample points inversely proportional to brightness (darker = denser)

@@ -27,9 +27,11 @@ class SuminagashiArtwork:
     svg_data: str
 
     def to_svg(self) -> str:
+        """Return the Suminagashi artwork as an SVG string."""
         return self.svg_data
 
     def save_svg(self, path: str | Path) -> None:
+        """Write the SVG artwork to ``path``."""
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(self.svg_data, encoding="utf-8")
@@ -48,7 +50,7 @@ def generate_suminagashi_marbling_portrait(
     svg_elements: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">',
         f'  <rect width="{w}" height="{h}" fill="{p.paper_water_hex}" />',
-        '  <!-- Suminagashi Marbled Ink Veins -->',
+        "  <!-- Suminagashi Marbled Ink Veins -->",
         f'  <g stroke="{p.ink_color_hex}" fill="none" stroke-linecap="round">',
     ]
 
@@ -83,8 +85,8 @@ def generate_suminagashi_marbling_portrait(
             streamlines += 1
 
     vortices = max(1, int(p.vortex_intensity * 3))
-    svg_elements.append('  </g>')
-    svg_elements.append('</svg>')
+    svg_elements.append("  </g>")
+    svg_elements.append("</svg>")
 
     return SuminagashiArtwork(
         width=w,

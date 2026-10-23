@@ -44,6 +44,7 @@ class UrbanPortrait:
         bounds: tuple[float, float, float, float],
         config: RenderConfig | None = None,
     ) -> None:
+        """Bind a portrait image to geographic bounds and precompute its tone limits."""
         self.config = config or RenderConfig()
 
         # Load image via PIL
