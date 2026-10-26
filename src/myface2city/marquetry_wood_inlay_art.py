@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import gray_at
+
 
 @dataclass
 class WoodSpeciesPalette:
@@ -73,7 +75,7 @@ def generate_marquetry_portrait(
             for dy in range(tile_size_px):
                 for dx in range(tile_size_px):
                     if x + dx < w and y + dy < h:
-                        tot += img.getpixel((x + dx, y + dy))
+                        tot += gray_at(img, (x + dx, y + dy))
                         cnt += 1
             avg_lum = tot / max(1, cnt)
 

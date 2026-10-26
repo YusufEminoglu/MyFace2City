@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class IsometricVoxel:
@@ -94,7 +96,7 @@ def generate_isometric_city_portrait(
         img = image.convert("L")
 
     img_scaled = img.resize((grid_size, grid_size), Image.Resampling.BILINEAR)
-    pixels = img_scaled.load()
+    pixels = load_pixels(img_scaled)
 
     cube_w = 24.0
     cube_h = 12.0

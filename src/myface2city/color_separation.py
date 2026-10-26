@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class ScreenPrintPlate:
@@ -81,7 +83,7 @@ def generate_cmyk_screen_layers(
 
     # Resize down to grid size
     small_img = img.resize((grid_cells_x, grid_cells_y), Image.Resampling.BOX)
-    pixels = small_img.load()
+    pixels = load_pixels(small_img)
 
     c_mat = [[0.0] * grid_cells_x for _ in range(grid_cells_y)]
     m_mat = [[0.0] * grid_cells_x for _ in range(grid_cells_y)]

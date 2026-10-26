@@ -8,10 +8,19 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, TypeVar
 
 _COLOR_PATTERN = re.compile(r"^#[0-9a-fA-F]{6}(?:[0-9a-fA-F]{2})?$")
 TONE_BREAKS = (0, 52, 104, 156, 208, 256)
+
+_T = TypeVar("_T")
+
+
+def _five_tones(values: list[_T], default: list[_T]) -> tuple[_T, _T, _T, _T, _T]:
+    """Fit ``values`` to exactly five tones, repeating the last entry as padding."""
+    tones = list(values[:5]) or list(default)
+    tones += [tones[-1]] * (5 - len(tones))
+    return tones[0], tones[1], tones[2], tones[3], tones[4]
 
 
 @dataclass(frozen=True)
@@ -37,15 +46,16 @@ class Palette:
     @classmethod
     def from_dict(cls, data: dict[str, Any], name: str = "Custom") -> Palette:
         """Build a palette from a dictionary, falling back to defaults for missing keys."""
-        colors = tuple(str(c) for c in data.get("colors", ["#000000"] * 5))
-        widths = tuple(float(w) for w in data.get("widths", [1.0, 0.8, 0.6, 0.4, 0.2]))
+        default_widths = [1.0, 0.8, 0.6, 0.4, 0.2]
+        colors = _five_tones([str(c) for c in data.get("colors", [])], ["#000000"] * 5)
+        widths = _five_tones([float(w) for w in data.get("widths", [])], default_widths)
         bg = str(data.get("background", "#ffffff"))
         hide = bool(data.get("hide_highlights", False))
         return cls(
             name=str(data.get("name", name)),
-            colors=colors[:5],
+            colors=colors,
             background=bg,
-            widths=widths[:5],
+            widths=widths,
             hide_highlights=hide,
         )
 

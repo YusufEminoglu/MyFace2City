@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class GlassFacet:
@@ -50,7 +52,7 @@ def generate_stained_glass_portrait(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     facets: list[GlassFacet] = []
     polys = []

@@ -9,6 +9,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class LinocutCarveParams:
@@ -51,7 +53,7 @@ def generate_linocut_portrait(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     paths = []
     groove_cnt = 0

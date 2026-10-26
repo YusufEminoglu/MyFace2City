@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import gray_at
+
 
 @dataclass
 class PaperFacetMesh:
@@ -56,8 +58,8 @@ def generate_origami_papercraft_portrait(
     for y in range(0, h - grid_subdivision_px, grid_subdivision_px):
         for x in range(0, w - grid_subdivision_px, grid_subdivision_px):
             # Compute quadrant luminance
-            lum_tl = img.getpixel((x, y))
-            lum_br = img.getpixel((x + grid_subdivision_px, y + grid_subdivision_px))
+            lum_tl = gray_at(img, (x, y))
+            lum_br = gray_at(img, (x + grid_subdivision_px, y + grid_subdivision_px))
 
             # Triangle 1: (x,y), (x+step, y), (x, y+step)
             t1_lum = lum_tl

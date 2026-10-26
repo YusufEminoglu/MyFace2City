@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import rgb_at
+
 
 @dataclass
 class RosetteScreenAngles:
@@ -64,7 +66,7 @@ def generate_cmyk_rosette_portrait(
     svg_elements.append('  <g fill="#00ffff" opacity="0.85" style="mix-blend-mode: multiply;">')
     for y in range(0, h, screen_pitch_px):
         for x in range(0, w, screen_pitch_px):
-            r, g, b = img_rgb.getpixel((x, y))
+            r, g, b = rgb_at(img_rgb, (x, y))
             cyan_val = 1.0 - (r / 255.0)
             if cyan_val > 0.15:
                 rad = cyan_val * (screen_pitch_px * 0.48)
@@ -77,7 +79,7 @@ def generate_cmyk_rosette_portrait(
     svg_elements.append('  <g fill="#ff00ff" opacity="0.85" style="mix-blend-mode: multiply;">')
     for y in range(0, h, screen_pitch_px):
         for x in range(0, w, screen_pitch_px):
-            r, g, b = img_rgb.getpixel((x, y))
+            r, g, b = rgb_at(img_rgb, (x, y))
             mag_val = 1.0 - (g / 255.0)
             if mag_val > 0.15:
                 rad = mag_val * (screen_pitch_px * 0.48)
@@ -90,7 +92,7 @@ def generate_cmyk_rosette_portrait(
     svg_elements.append('  <g fill="#ffff00" opacity="0.85" style="mix-blend-mode: multiply;">')
     for y in range(0, h, screen_pitch_px):
         for x in range(0, w, screen_pitch_px):
-            r, g, b = img_rgb.getpixel((x, y))
+            r, g, b = rgb_at(img_rgb, (x, y))
             yel_val = 1.0 - (b / 255.0)
             if yel_val > 0.15:
                 rad = yel_val * (screen_pitch_px * 0.48)
@@ -103,7 +105,7 @@ def generate_cmyk_rosette_portrait(
     svg_elements.append('  <g fill="#101010" opacity="0.95" style="mix-blend-mode: multiply;">')
     for y in range(0, h, screen_pitch_px):
         for x in range(0, w, screen_pitch_px):
-            r, g, b = img_rgb.getpixel((x, y))
+            r, g, b = rgb_at(img_rgb, (x, y))
             k_val = 1.0 - (max(r, g, b) / 255.0)
             if k_val > 0.20:
                 rad = k_val * (screen_pitch_px * 0.50)

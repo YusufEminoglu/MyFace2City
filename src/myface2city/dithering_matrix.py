@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 BAYER_4X4 = [
     [0 / 16.0, 8 / 16.0, 2 / 16.0, 10 / 16.0],
     [12 / 16.0, 4 / 16.0, 14 / 16.0, 6 / 16.0],
@@ -28,7 +30,7 @@ class DitherArtwork:
     def to_image(self) -> Image.Image:
         """Build a 1-bit PIL image from the dithered bitmap."""
         img = Image.new("1", (self.width, self.height))
-        pixels = img.load()
+        pixels = load_pixels(img)
         for r in range(self.height):
             for c in range(self.width):
                 pixels[c, r] = 1 if self.dither_matrix[r][c] > 128 else 0
@@ -51,7 +53,7 @@ def generate_ordered_dither_portrait(
         img = img.resize((nw, nh), Image.Resampling.BILINEAR)
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
     matrix = [[0] * w for _ in range(h)]
 
     for r in range(h):
@@ -74,7 +76,7 @@ def apply_error_diffusion_dither(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     # Float buffer for error accumulation
     buf = [[float(pixels[c, r]) for c in range(w)] for r in range(h)]

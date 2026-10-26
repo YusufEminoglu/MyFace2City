@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class NeonPalette:
@@ -52,7 +54,7 @@ def generate_cyberpunk_neon_portrait(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     neon_nodes = []
     vector_cnt = 0

@@ -10,6 +10,8 @@ from pathlib import Path
 
 from PIL import Image, ImageFilter
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class Streamline:
@@ -70,11 +72,11 @@ def generate_flow_field_art(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     # Compute horizontal and vertical gradients
     img_blur = img.filter(ImageFilter.GaussianBlur(radius=1.5))
-    blur_pix = img_blur.load()
+    blur_pix = load_pixels(img_blur)
 
     def get_angle(x: float, y: float) -> float:
         """Return the flow-field direction angle at pixel (x, y)."""

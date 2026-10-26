@@ -93,6 +93,7 @@ def _overpass_to_geojson(osm_json: dict[str, Any]) -> dict[str, Any]:
         is_building = "building" in tags
         is_closed = coords[0] == coords[-1]
 
+        geom: dict[str, Any]
         if is_building and is_closed and len(coords) >= 4:
             geom = {"type": "Polygon", "coordinates": [coords]}
         else:

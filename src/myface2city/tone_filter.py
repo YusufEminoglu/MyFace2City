@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image, ImageOps
 
+from ._imaging import load_pixels
+
 
 def bilateral_texture_filter(
     image: Image.Image | str | Path,
@@ -21,9 +23,9 @@ def bilateral_texture_filter(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
     out_img = Image.new("L", (w, h))
-    out_pix = out_img.load()
+    out_pix = load_pixels(out_img)
 
     rad = int(spatial_sigma * 2)
     spatial_coeff = -0.5 / (spatial_sigma**2)

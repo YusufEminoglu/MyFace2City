@@ -9,6 +9,7 @@ from typing import Any
 
 from PIL import Image
 
+from ._imaging import load_pixels
 from .presets import Palette, get_preset
 
 
@@ -99,7 +100,7 @@ def generate_voronoi_stipple(
     pal = get_preset(preset) if isinstance(preset, str) else preset
     gray = image.convert("L")
     w, h = gray.size
-    pixels = gray.load()
+    pixels = load_pixels(gray)
 
     # Step 1: Initialize random or density-weighted points
     import random

@@ -138,6 +138,14 @@ def test_palette_from_dict_defaults_and_truncation() -> None:
     assert Palette.from_dict(palette.to_dict(), name="RoundTrip").name == "Custom"
 
 
+def test_palette_from_dict_pads_short_tone_lists() -> None:
+    """Fewer than five tones are padded with the last entry so every tone bin resolves."""
+    short = Palette.from_dict({"colors": ["#111111", "#222222"], "widths": [2.0], "background": "#000000"})
+    assert short.colors == ("#111111", "#222222", "#222222", "#222222", "#222222")
+    assert short.widths == (2.0,) * 5
+    assert Palette.from_dict({"colors": []}).colors == ("#000000",) * 5
+
+
 # ---------------------------------------------------------------------------
 # UrbanPortrait branches
 # ---------------------------------------------------------------------------

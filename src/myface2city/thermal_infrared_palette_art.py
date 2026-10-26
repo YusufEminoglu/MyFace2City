@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import gray_at
+
 
 @dataclass
 class FLIRPalette:
@@ -71,7 +73,7 @@ def generate_thermal_infrared_portrait(
 
     for y in range(0, h, pixel_bin_size_px):
         for x in range(0, w, pixel_bin_size_px):
-            lum = img.getpixel((x, y))
+            lum = gray_at(img, (x, y))
             frac = lum / 255.0
             idx = min(num_colors - 1, int(frac * num_colors))
             color = pal.ironbow_hex[idx]

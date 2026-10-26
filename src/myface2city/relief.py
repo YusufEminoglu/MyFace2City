@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class ReliefMesh3D:
@@ -71,7 +73,7 @@ def generate_3d_relief_mesh(
         ReliefMesh3D object with vertices, triangles, normals, and UVs.
     """
     img_gray = image.convert("L").resize((grid_size, grid_size), Image.Resampling.BILINEAR)
-    pixels = img_gray.load()
+    pixels = load_pixels(img_gray)
 
     vertices: list[tuple[float, float, float]] = []
     uvs: list[tuple[float, float]] = []

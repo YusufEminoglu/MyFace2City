@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class WatercolorPigmentParams:
@@ -50,7 +52,7 @@ def apply_watercolor_wash_portrait(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
 
     blobs = []
     # Base watercolor filter definition with turbulence and displacement map

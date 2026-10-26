@@ -10,6 +10,8 @@ from typing import Sequence
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class HatchingStroke:
@@ -61,7 +63,7 @@ def generate_engraved_hatching_art(
         img = image.convert("L")
 
     w, h = img.size
-    pixels = img.load()
+    pixels = load_pixels(img)
     strokes: list[HatchingStroke] = []
 
     # Iterate over sampling grid

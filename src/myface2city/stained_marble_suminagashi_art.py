@@ -9,6 +9,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import gray_at
+
 
 @dataclass
 class MarblingVortexParams:
@@ -62,7 +64,7 @@ def generate_suminagashi_marbling_portrait(
     for y in range(0, h, grid_step_px):
         path_pts: list[str] = []
         for x in range(0, w, grid_step_px):
-            lum = img.getpixel((x, y))
+            lum = gray_at(img, (x, y))
             # Hydrodynamic swirl displacement
             dx = x - cx
             dy = y - cy

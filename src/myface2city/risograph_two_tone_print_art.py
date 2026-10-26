@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import gray_at
+
 
 @dataclass
 class RisoColorDrum:
@@ -63,7 +65,7 @@ def generate_risograph_print_portrait(
     # Drum 1 pass (Highlights / Midtones)
     for y in range(0, h, dot_pitch_px):
         for x in range(0, w, dot_pitch_px):
-            lum = img.getpixel((x, y))
+            lum = gray_at(img, (x, y))
             if lum < 220:  # Inked area
                 r = max(0.5, ((255 - lum) / 255.0) * (dot_pitch_px * 0.55))
                 cx = x + d1.misregistration_offset_px[0]
@@ -78,7 +80,7 @@ def generate_risograph_print_portrait(
     # Drum 2 pass (Shadows / Deep tones)
     for y in range(0, h, dot_pitch_px):
         for x in range(0, w, dot_pitch_px):
-            lum = img.getpixel((x, y))
+            lum = gray_at(img, (x, y))
             if lum < 140:  # Dark shadow areas
                 r = max(0.6, ((140 - lum) / 140.0) * (dot_pitch_px * 0.65))
                 cx = x + d2.misregistration_offset_px[0]

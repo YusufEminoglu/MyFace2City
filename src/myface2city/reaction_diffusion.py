@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class TuringPatternArtwork:
@@ -24,7 +26,7 @@ class TuringPatternArtwork:
     ) -> Image.Image:
         """Rasterize the chemical-B field into an RGB image blending foreground over background."""
         img = Image.new("RGB", (self.width, self.height), background_color)
-        pixels = img.load()
+        pixels = load_pixels(img)
         for r in range(self.height):
             for c in range(self.width):
                 b = self.chemical_b_matrix[r][c]
@@ -110,7 +112,7 @@ def generate_turing_portrait(
         img = image.convert("L")
 
     small = img.resize((resolution, resolution), Image.Resampling.LANCZOS)
-    pixels = small.load()
+    pixels = load_pixels(small)
 
     feed_mat: list[list[float]] = []
     kill_mat: list[list[float]] = []

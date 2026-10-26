@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class ASCIIArtwork:
@@ -70,7 +72,7 @@ def generate_ascii_map_art(
     rows = max(1, int(cols * aspect))
 
     small_img = img.resize((cols, rows), Image.Resampling.LANCZOS)
-    pixels = small_img.load()
+    pixels = load_pixels(small_img)
 
     palette = char_palette[::-1] if invert_luminance else char_palette
     n_chars = len(palette)

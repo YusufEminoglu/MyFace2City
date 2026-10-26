@@ -11,6 +11,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
 from .engine import RenderConfig, UrbanPortrait
 from .export import export_svg
 from .osm import fetch_osm_network, generate_synthetic_urban_grid
@@ -68,7 +69,9 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Error: Image not found: {img_path}", file=sys.stderr)
             return 1
 
-        img = Image.open(str(img_path))
+        # Decode eagerly so the file handle is released on every exit path.
+        with Image.open(str(img_path)) as src_img:
+            img: Image.Image = src_img.copy()
 
         # Vector network source
         if args.vector:
@@ -114,9 +117,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Error: Image not found: {img_path}", file=sys.stderr)
             return 1
 
-        img = Image.open(str(img_path)).convert("L")
+        with Image.open(str(img_path)) as src_img:
+            img = src_img.convert("L")
         w, h = img.size
-        pixels = img.load()
+        pixels = load_pixels(img)
 
         def sample_fn(u: float, v: float) -> float:
             """Sample normalized image luminance at the (u, v) coordinate."""

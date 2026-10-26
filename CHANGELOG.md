@@ -5,6 +5,21 @@ All notable changes to **`myface2city`** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- `Palette.from_dict` padded nothing when given fewer than five colors or widths, producing a
+  short palette that raised `IndexError` during rendering and SVG export. Short lists are now
+  padded with their last entry (an empty list falls back to the defaults).
+- The `render` and `stipple` CLI commands left the input image file open (and locked on
+  Windows) when returning early, e.g. on a missing vector file.
+- Resolved all 84 mypy findings. Pixel access goes through the new private
+  `myface2city._imaging` helpers, which raise a clear error if Pillow cannot load pixel data.
+
+### Changed
+- Packaging uses PEP 639 license metadata (`license = "MIT"`, `license-files`) and requires
+  setuptools 77+; the tracked `.coverage` and `egg-info` artifacts were removed from git.
+
 ## [0.12.1] - 2026-10-23
 
 ### Changed

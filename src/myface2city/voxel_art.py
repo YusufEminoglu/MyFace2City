@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from ._imaging import load_pixels
+
 
 @dataclass
 class VoxelBlock:
@@ -102,7 +104,7 @@ def generate_isometric_voxel_art(
         img = image.convert("RGB")
 
     small = img.resize((grid_resolution, grid_resolution), Image.Resampling.LANCZOS)
-    pixels = small.load()
+    pixels = load_pixels(small)
 
     blocks: list[VoxelBlock] = []
 

@@ -11,6 +11,7 @@ from typing import Any, Union
 
 from PIL import Image
 
+from ._imaging import load_pixels
 from .presets import Palette, get_preset
 from .profile import (
     adjust_luminance,
@@ -70,7 +71,7 @@ class UrbanPortrait:
             self.low_limit, self.high_limit = 0, 255
 
         # Cache pixel lookup
-        self._pixels = self.image.load()
+        self._pixels = load_pixels(self.image)
 
     def sample_pixel(self, u: float, v: float) -> int:
         """Sample raw 8-bit luminance at normalized coordinate (0..1, 0..1)."""
