@@ -4,7 +4,7 @@ MyFace2City — Turn urban street networks, building footprints, and vector maps
 
 from __future__ import annotations
 
-__version__ = "0.12.2"
+__version__ = "0.12.3"
 __author__ = "Yusuf Eminoğlu"
 
 from . import cli as cli
