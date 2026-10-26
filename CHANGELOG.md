@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.2] - 2026-10-26
+
 ### Fixed
+- `export_svg` and `render_svg_artwork` without explicit `bounds` drew every feature far outside
+  the canvas, producing a blank SVG (also via the `render`/`stipple` CLI commands): the bounding-box
+  helper updated local copies and never returned them. It now returns the expanded box.
 - `Palette.from_dict` padded nothing when given fewer than five colors or widths, producing a
   short palette that raised `IndexError` during rendering and SVG export. Short lists are now
   padded with their last entry (an empty list falls back to the defaults).
@@ -17,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `myface2city._imaging` helpers, which raise a clear error if Pillow cannot load pixel data.
 
 ### Changed
+- PyPI metadata: a plain-language summary, search keywords that match what users look for, and a working issue tracker link (GitHub issues; the GitLab issues page returned 404).
 - Packaging uses PEP 639 license metadata (`license = "MIT"`, `license-files`) and requires
   setuptools 77+; the tracked `.coverage` and `egg-info` artifacts were removed from git.
 

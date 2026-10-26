@@ -588,3 +588,15 @@ def test_cli_render_osm_failure_falls_back(monkeypatch: pytest.MonkeyPatch, tmp_
     )
     assert code == 0
     assert output_path.exists()
+
+
+def test_svg_without_explicit_bounds_fits_features_on_canvas() -> None:
+    """Auto-computed bounds keep every drawn coordinate inside the poster canvas."""
+    import re
+
+    grid = mfc.generate_synthetic_urban_grid((27.10, 38.40, 27.15, 38.45), grid_density=10)
+    svg = render_svg_artwork(grid, svg_width=1200, svg_height=1200, margin=40)
+    body = svg.split("<path", 1)[1]
+    coords = [float(v) for v in re.findall(r"(-?\d+\.\d+)", body)]
+    assert coords
+    assert 0.0 <= min(coords) and max(coords) <= 1200.0

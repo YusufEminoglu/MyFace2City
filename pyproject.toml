@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "myface2city"
-version = "0.12.1"
+version = "0.12.2"
 authors = [
     { name = "Yusuf Eminoğlu", email = "yusufeminoglu@gmail.com" }
 ]
-description = "Algorithmic Urban Portrait, CMYK Halftone Rosettes & Suminagashi Water Marbling Suite."
+description = "Turn a portrait photo into city-map art: restyle OpenStreetMap streets and buildings by the photo's tones, or render stippled, halftone and line-art SVG portraits."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -17,6 +17,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -29,7 +30,13 @@ classifiers = [
 ]
 keywords = [
     "gis", "cartography", "generative-art", "urban-portrait", "face2city",
-    "openstreetmap", "halftone", "stippling", "vector-art", "spatial-art"
+    "openstreetmap", "halftone", "stippling", "vector-art", "spatial-art",
+    "map-art",
+    "portrait",
+    "svg",
+    "street-network",
+    "creative-coding",
+    "plotter-art",
 ]
 dependencies = [
     "pillow>=9.1.0",
@@ -51,7 +58,8 @@ myface2city = "myface2city.cli:main"
 Homepage = "https://geophilo.com/"
 Documentation = "https://geophilo.com/myface2city/"
 Repository = "https://gitlab.com/geospacephilo/MyFace2City"
-Issues = "https://gitlab.com/geospacephilo/MyFace2City/-/issues"
+GitHub = "https://github.com/YusufEminoglu/MyFace2City"
+Issues = "https://github.com/YusufEminoglu/MyFace2City/issues"
 Changelog = "https://gitlab.com/geospacephilo/MyFace2City/-/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]

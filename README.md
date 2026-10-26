@@ -9,8 +9,52 @@
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
   <a href="https://geophilo.com/myface2city/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
-  <a href="https://gitlab.com/geospacephilo/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
+  <a href="https://github.com/YusufEminoglu/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
 </p>
+
+**Turn a portrait photo into city-map art: restyle OpenStreetMap streets and buildings by the photo's light and dark tones, and generate stippled, halftone or line-art SVG portraits.**
+
+[📖 **Documentation & Live Studio**](https://geophilo.com/myface2city/) • [📦 **PyPI Package**](https://pypi.org/project/myface2city/) • [💻 **GitHub**](https://github.com/YusufEminoglu/MyFace2City) • [🐛 **Issue Tracker**](https://github.com/YusufEminoglu/MyFace2City/issues)
+
+## 📦 Installation
+
+```bash
+pip install myface2city
+```
+
+Runtime dependency: only [Pillow](https://pypi.org/project/pillow/). Requires **Python 3.9+** and ships a `py.typed` marker for full type-checker support.
+
+Development extras (test + lint + release tooling), from a source checkout:
+
+```bash
+git clone https://gitlab.com/geospacephilo/MyFace2City.git
+cd MyFace2City
+pip install -e ".[dev]"
+```
+
+## ⚡ Quickstart (runs offline)
+
+```python
+from pathlib import Path
+from PIL import Image, ImageDraw
+import myface2city as mfc
+
+# Stand-in portrait: a dark disc on a light background (use Image.open("face.jpg") for a real photo)
+img = Image.new("L", (400, 400), 235)
+ImageDraw.Draw(img).ellipse((80, 60, 320, 340), fill=40)
+
+bounds = (27.10, 38.40, 27.15, 38.45)  # (min_lon, min_lat, max_lon, max_lat)
+streets = mfc.generate_synthetic_urban_grid(bounds, grid_density=20)  # offline demo street grid
+
+portrait = mfc.UrbanPortrait(img, bounds)
+styled = portrait.process_geojson(streets, palette="Cyberpunk 2077")
+svg = mfc.render_svg_artwork(styled, bounds=portrait.fitted_bounds, preset="Cyberpunk 2077")
+Path("portrait.svg").write_text(svg, encoding="utf-8")
+print(len(styled["features"]), "styled features -> portrait.svg")
+# 442 styled features -> portrait.svg
+```
+
+Open `portrait.svg` in a browser. For real streets, swap the synthetic grid for `mfc.fetch_osm_network(bounds)` (needs internet).
 
 ---
 
@@ -50,31 +94,7 @@ Beyond the map-locked engine, the package ships a large collection of standalone
 
 ---
 
-## 🚀 Quick Start
-
-### Installation
-
-Install the runtime package from PyPI (only depends on [Pillow](https://pypi.org/project/pillow/)):
-
-```bash
-pip install myface2city
-```
-
-Install the development extras (test + lint + release tooling):
-
-```bash
-pip install -e ".[dev]"
-```
-
-Or install directly from a source checkout:
-
-```bash
-git clone https://gitlab.com/geospacephilo/MyFace2City.git
-cd MyFace2City
-pip install -e ".[dev]"
-```
-
-`myface2city` requires **Python 3.9+** and ships a `py.typed` marker for full type-checker support.
+## 🚀 More Examples
 
 ### Python API
 
@@ -276,7 +296,7 @@ python -m ruff format src tests
 python -m ruff check .
 ```
 
-See [`examples/cookbook.py`](examples/cookbook.py) for a runnable tour of the generators.
+See [`examples/cookbook.py`](https://github.com/YusufEminoglu/MyFace2City/blob/main/examples/cookbook.py) for a runnable tour of the generators.
 
 ---
 

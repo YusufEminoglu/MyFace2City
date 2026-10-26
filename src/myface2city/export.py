@@ -30,7 +30,7 @@ def render_svg_artwork(
         for feat in features:
             geom = feat.get("geometry", {})
             coords = geom.get("coordinates", [])
-            _update_bbox(coords, min_x, min_y, max_x, max_y)
+            min_x, min_y, max_x, max_y = _update_bbox(coords, min_x, min_y, max_x, max_y)
         if math.isinf(min_x):
             bounds = (0.0, 0.0, 1.0, 1.0)
         else:
@@ -114,15 +114,19 @@ def export_svg(
     return p
 
 
-def _update_bbox(coords: Any, min_x: float, min_y: float, max_x: float, max_y: float) -> None:
-    """Recursively walk nested coordinate arrays, updating local bounding-box candidates."""
+def _update_bbox(
+    coords: Any, min_x: float, min_y: float, max_x: float, max_y: float
+) -> tuple[float, float, float, float]:
+    """Recursively walk nested coordinate arrays and return the expanded bounding box."""
     if not coords:
-        return
+        return min_x, min_y, max_x, max_y
     if isinstance(coords[0], (int, float)):
-        min_x = min(min_x, coords[0])
-        max_x = max(max_x, coords[0])
-        min_y = min(min_y, coords[1])
-        max_y = max(max_y, coords[1])
-    else:
-        for sub in coords:
-            _update_bbox(sub, min_x, min_y, max_x, max_y)
+        return (
+            min(min_x, coords[0]),
+            min(min_y, coords[1]),
+            max(max_x, coords[0]),
+            max(max_y, coords[1]),
+        )
+    for sub in coords:
+        min_x, min_y, max_x, max_y = _update_bbox(sub, min_x, min_y, max_x, max_y)
+    return min_x, min_y, max_x, max_y
