@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/v/myface2city?color=FF0055&label=PyPI%20Version" alt="PyPI"></a>
+  <a href="https://doi.org/10.5281/zenodo.23677249"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23677249.svg" alt="DOI"></a>
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
   <a href="https://geophilo.com/myface2city/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
   <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
