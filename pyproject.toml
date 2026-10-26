@@ -57,10 +57,9 @@ myface2city = "myface2city.cli:main"
 [project.urls]
 Homepage = "https://geophilo.com/"
 Documentation = "https://geophilo.com/myface2city/"
-Repository = "https://gitlab.com/geospacephilo/MyFace2City"
-GitHub = "https://github.com/YusufEminoglu/MyFace2City"
+Repository = "https://github.com/YusufEminoglu/MyFace2City"
 Issues = "https://github.com/YusufEminoglu/MyFace2City/issues"
-Changelog = "https://gitlab.com/geospacephilo/MyFace2City/-/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/YusufEminoglu/MyFace2City/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]
