@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Eminoğlu"
+    given-names: "Yusuf"
+    email: "yusufeminoglu@gmail.com"
+    orcid: "https://orcid.org/0009-0005-6000-2934"
+title: "myface2city"
+version: "0.12.2"
+date-released: "2026-10-26"
+license: "MIT"
+repository-code: "https://github.com/YusufEminoglu/MyFace2City"
+url: "https://pypi.org/project/myface2city/"
+abstract: "Turn a portrait photo into city-map art: restyle OpenStreetMap streets and buildings by the photo's tones, or render stippled, halftone and line-art SVG portraits."
+keywords:
+  - "gis"
+  - "cartography"
+  - "generative-art"
+  - "urban-portrait"
+  - "face2city"
+  - "openstreetmap"
+  - "halftone"
+  - "stippling"
+  - "vector-art"
+  - "spatial-art"
+  - "map-art"
+  - "portrait"
