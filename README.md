@@ -9,7 +9,7 @@
   <a href="https://doi.org/10.5281/zenodo.23677249"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23677249.svg" alt="DOI"></a>
   <a href="https://pypi.org/project/myface2city/"><img src="https://img.shields.io/pypi/dm/myface2city?color=7000FF&label=Downloads" alt="PyPI Downloads"></a>
   <a href="https://geophilo.com/myface2city/"><img src="https://img.shields.io/badge/docs-GEOPHILO-10b981.svg" alt="Documentation"></a>
-  <a href="https://gitlab.com/geospacephilo/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
+  <a href="https://github.com/YusufEminoglu/MyFace2City/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
   <a href="https://github.com/YusufEminoglu/MyFace2City/actions"><img src="https://img.shields.io/badge/CI-Passing-brightgreen.svg" alt="CI"></a>
 </p>
 
@@ -28,7 +28,7 @@ Runtime dependency: only [Pillow](https://pypi.org/project/pillow/). Requires **
 Development extras (test + lint + release tooling), from a source checkout:
 
 ```bash
-git clone https://gitlab.com/geospacephilo/MyFace2City.git
+git clone https://github.com/YusufEminoglu/MyFace2City.git
 cd MyFace2City
 pip install -e ".[dev]"
 ```
